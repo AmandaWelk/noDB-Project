@@ -1,0 +1,98 @@
+.background {
+    background-color: lightcyan;
+    height: 152vh;
+    width: 100vw;
+}
+
+.Header {
+    color: darkgreen;
+    font-family: "Papyrus";
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.chooseButtonsHolder {
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.choose-buttons {
+    background-color: darkgreen;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+.displayArrays {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.plantPics {
+    height: 125px;
+    width: 125px;
+}
+
+.plantData {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p {
+  
+}
+
+.veggiesData {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.gardenBox {
+    width: 80vw;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: saddlebrown;
+}
+
+.myGardenBox {
+    width: 100vw;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+}
+
+.planted {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.plantedImg {
+    height: 100px;
+    width: 100px;
+}
+
+.plantedText {
+    color: whitesmoke;
+}
+
+.Footer {
+    color: darkgreen;
+    font-family: "Papyrus";
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+

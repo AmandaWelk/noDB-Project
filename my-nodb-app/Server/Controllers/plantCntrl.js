@@ -1,37 +1,37 @@
 const herbArr = [{
     name: 'Mint',
-    uses: ['tea', 'cooking'],
+    uses: ['tea', 'cooking', 'essential oil'],
     image: `https://www.almanac.com/sites/default/files/image_nodes/mint-planting-growing-harvesting.jpg`,
     id: 1
     },
 
     {name: 'Lavender',
-    uses: ['tea', 'essential oil'],
+    uses: ['tea', 'essential oil', 'baking'],
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXa6PmfzBlTnzu4N-pZuKi7cZK57-VTQUX1A&usqp=CAU`,
     id: 2},
 
     {name: 'Rosemary',
-    uses: ['tea', 'cooking'],
+    uses: ['medicinal', 'cooking'],
     image: `https://www.almanac.com/sites/default/files/image_nodes/rosemary-foliage.jpg`,
     id: 3},
 
     {name: 'Lemon Balm',
-    uses: ['tea', 'cooking'],
+    uses: ['tea', 'cooking', 'essential oil'],
     image: `https://harvesttotable.com/wp-content/uploads/2009/04/Lemon-balm-2.jpg`,
     id: 4},
 
     {name: 'Basil',
-    uses: ['tea', 'cooking'],
+    uses: ['health benefits', 'cooking'],
     image: `https://www.gardeningknowhow.com/wp-content/uploads/2014/07/basil.jpg`,
     id: 5},
 
     {name: 'Parsley',
-    uses: ['tea', 'cooking'],
+    uses: ['cooking'],
     image: `https://www.almanac.com/sites/default/files/styles/opengraph/public/image_nodes/parsley-planting-growing-harvesting.jpg?itok=_JqeQUPM`,
     id: 6},
 
     {name: 'Chamomile',
-    uses: ['tea', 'cooking'],
+    uses: ['tea', 'essential oil', 'medicinal'],
     image: `https://www.florahealth.com/us/wp-content/uploads/sites/2/2017/06/Chamomile-flower_72dpi.jpg`,
     id: 7}
     ]

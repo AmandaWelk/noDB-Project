@@ -3,6 +3,8 @@ import './App.css';
 //import { response } from 'express';
 import axios from 'axios';
 import Choose from './Components/Choose';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 class App extends Component {
   constructor() {
@@ -39,8 +41,10 @@ class App extends Component {
     console.log(this.state.herbArr)
     console.log(this.state.vegArr)
     return(
-      <div>
-        <Choose getHerbs={this.getHerbs} getVeggies={this.getVeggies}/>
+      <div className="background">
+        <Header/>
+        <Choose getHerbs={this.getHerbs} getVeggies={this.getVeggies} herbArr={this.state.herbArr} vegArr={this.state.vegArr}/>
+        <Footer/>
       </div>
     )
   }
