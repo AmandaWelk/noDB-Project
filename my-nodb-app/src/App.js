@@ -22,8 +22,9 @@ class App extends Component {
     .then(response => {
       this.setState({
         herbArr: response.data
-      });
-    });
+      })
+    })
+    .catch(err => console.log(err));
   };
 
   getVeggies = () => {
@@ -31,9 +32,12 @@ class App extends Component {
     .then(response => {
       this.setState({
         vegArr: response.data
-      });
-    });
+      })
+    })
+    .catch(err => console.log(err));
   }
+
+  
 
 
 

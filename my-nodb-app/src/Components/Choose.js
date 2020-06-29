@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 //import Herbs from './Herbs';
 //import Vegetables from './Vegetables'; 
 import MyGarden from './MyGarden';
+import axios from 'axios';
 
 class Choose extends Component {
     constructor() {
@@ -11,6 +12,14 @@ class Choose extends Component {
             gardenArr: [],
         };
     }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevState.gardenArr.length !== this.state.gardenArr.length) {
+            this.updateGarden()
+        }
+    }
+
+    updateGarden
 
     moveHerbsToGarden = (id) => {
         this.props.herbArr.map(obj => {
@@ -32,9 +41,16 @@ class Choose extends Component {
         }) 
     }
 
+    removeFromGarden = (id) => {
+        axios.delete(`/myGarden/planted/${id}`).then(response => {
+            console.log(response.data)
+        })
+    }
+
+
     render() {
         const {getHerbs, getVeggies, herbArr, vegArr} = this.props;
-        console.log(herbArr)
+        //console.log(herbArr)
         const herbsMapped = herbArr.map(obj => {
             return(
                 <div className="herbsData">
@@ -69,7 +85,8 @@ class Choose extends Component {
                     {herbsMapped}
                     {veggiesMapped}
                 </div>
-                <MyGarden gardenArr={this.state.gardenArr}/>
+                <MyGarden gardenArr={this.state.gardenArr}
+                removeFunction={this.removeFromGarden}/>
             </div>
          )
      }

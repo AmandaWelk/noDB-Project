@@ -7,5 +7,6 @@ app.use(express.json());
 
 app.get('/plant/herb', ctrl.getHerbs)
 app.get('/plant/veggies', ctrl.getVeggies)
+app.delete('/myGarden/planted/:id', ctrl.removeFromGarden)
 
 app.listen(SERVER_PORT, () => console.log(`Server is running on ${SERVER_PORT}`));

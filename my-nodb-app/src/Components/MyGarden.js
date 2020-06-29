@@ -7,12 +7,15 @@ class MyGarden extends Component {
 
 
     render() {
+        console.log(this.props.gardenArr);
         const {gardenArr} = this.props;
         const myGarden = gardenArr.map((obj, i) => {
            return(
                <div key={i} className="planted">
                    <img src={obj.image} className="plantedImg"/>
                     <div className="plantedText">{`${obj.name}`}</div>
+                    <button>Type/Use</button>
+                    <button>Remove</button>
                </div>
            )
         })

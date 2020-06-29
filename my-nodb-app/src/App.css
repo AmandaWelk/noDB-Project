@@ -46,6 +46,8 @@
 }
 
 p {
+  font-size: 13px;
+  margin-right: 15px;
   
 }
 
@@ -73,7 +75,7 @@ p {
 .planted {
     display: flex;
     flex-direction: column;
-    
+    margin: 15px;
 }
 
 .plantedImg {

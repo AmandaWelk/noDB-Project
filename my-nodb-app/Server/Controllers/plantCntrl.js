@@ -40,43 +40,43 @@ const vegArr = [{
     name: 'Tomatoes',
     types: ['cherry', 'roma', 'red beefsteak'],
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYvLhFCnhsTUMUmxsVd72WyLA8pJvL4mTwdw&usqp=CAU`,
-    id: 1
+    id: 8
     },
 
     {name: 'Peppers',
     types: ['jalapeno', 'bell', 'poblano'],
     image: `https://minnesotafreshfarm.com/uploads/3/4/4/3/34438696/published/hot-peppers-ffu.jpg?1550785699`,
-    id: 2
+    id: 9
     },
 
     {name: 'Squash',
     types: ['zucchini', 'yellow', 'patty pan'],
     image: `https://www.gardenzeus.com/wp-content/uploads/shutterstock_449749306.jpg`,
-    id: 3
+    id: 10
     },
 
     {name: 'Beans',
     types: ['bush', 'pole', 'string'],
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQB3Ufnl7tuLFebQQ4YPSRhsgyIRAx1vG3lNQ&usqp=CAU`,
-    id: 4
+    id: 11
     },
 
     {name: 'Corn',
     types: ['sweet', 'baby', 'nirvana hybrid'],
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUsqEzoxSYDo4wb5cJsFVz856FirGEobRJ5Q&usqp=CAU`,
-    id: 5
+    id: 12
     },
 
     {name: 'Leafy Greens',
     types: ['spinach', 'lettuce', 'kale'],
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTH3HIEYJwM-cZdDfOvFccsRyarl-QrJ4A-Uw&usqp=CAU`,
-    id: 6
+    id: 13
     },
 
     {name: 'Potatoes',
     types: ['yukon gold', 'russet', 'red'],
     image: `https://www.almanac.com/sites/default/files/users/AlmanacStaffArchive/potatoes-harvested_full_width.jpg`,
-    id: 7
+    id: 14
     }
 ]
 
@@ -87,5 +87,23 @@ module.exports = {
 
     getVeggies: (req, res) => {
         res.status(200).send(vegArr)
+    },
+
+    inputTypeOrUse: (req, res) => {
+
+    },
+
+    removeFromGarden: (req, res) => {
+        const {id} = req.params;
+
+        const index = herbArr.findIndex(obj => obj.id === +id) 
+        if (index) {
+            return herbArr.splice(index, 1)
+        }
+        const indexTwo = vegArr.findIndex(obj => obj.id === +id)
+        if (indexTwo) {
+            return vegArr.splice(indexTwo, 1)
+        }
+        res.status(200).send(herbArr, vegArr)
     }
 }
