@@ -19,7 +19,12 @@ class Choose extends Component {
         }
     }
 
-    updateGarden
+    updateGarden = () => {
+        const {gardenArr} = this.state;
+        const body = {gardenArr};
+
+        axios.post(`/garden/update`, body)
+    }
 
     moveHerbsToGarden = (id) => {
         this.props.herbArr.map(obj => {

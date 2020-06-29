@@ -80,6 +80,8 @@ const vegArr = [{
     }
 ]
 
+const backEndGardenArr = [];
+
 module.exports = {
     getHerbs: (req, res) => {
         res.status(200).send(herbArr)
@@ -105,5 +107,14 @@ module.exports = {
             return vegArr.splice(indexTwo, 1)
         }
         res.status(200).send(herbArr, vegArr)
+    },
+
+    updateGarden: (req, res) => {
+        //console.log(req.body)
+        const {gardenArr} = req.body;
+
+        backEndGardenArr.push(gardenArr);
+        console.log(backEndGardenArr)
+        res.status(200).send('updated!')
     }
 }
