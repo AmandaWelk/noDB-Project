@@ -95,36 +95,39 @@ module.exports = {
 
     },
 
-    removeFromGarden: (req, res) => {
+    removeHerbs: (req, res, next) => {
         const {id} = req.params;
-        for (let i = 0; i < backEndGardenArr.length; i++) {
-            for (let j = 0; j < backEndGardenArr[i].length; j++) {
-                if (backEndGardenArr[i][j].id === id) {
-                    console.log(backEndGardenArr[i][j])
-                    backEndGardenArr[i][j].splice(j, 1)
-                }
-            }
-        }
-        //console.log(backEndGardenArr)
+        //console.log(id)
+        if (id > 7) {
+            next()
+        } else { 
+            for (let i = backEndGardenArr.length - 1; i >= 0; i--) {
+                if (+id === backEndGardenArr[i].id) {
+                    console.log('hit')
+                      backEndGardenArr.splice(i, 1)
+                  }
+         }
         res.status(200).send(backEndGardenArr)
+    }},
 
-        // const index = herbArr.findIndex(obj => obj.id === +id) 
-        // if (index) {
-        //     return herbArr.splice(index, 1)
-        // }
-        // const indexTwo = vegArr.findIndex(obj => obj.id === +id)
-        // if (indexTwo) {
-        //     return vegArr.splice(indexTwo, 1)
-        // }
-        // res.status(200).send(herbArr, vegArr)
+    removeVeggies: (req, res) => {
+        //console.log(backEndGardenArr)
+        const {id} = req.params;
+        console.log(+id)
+        console.log(backEndGardenArr[0].id)
+         for (let i = backEndGardenArr.length - 1; i >= 0; i--) {
+                if (+id === backEndGardenArr[i].id) {
+                    console.log('hit')
+                      backEndGardenArr.splice(i, 1)
+                  }
+         }
+        //console.log(backEndGardenArr) 
+        res.status(200).send(backEndGardenArr)
     },
 
-    updateGarden: (req, res) => {
-        //console.log(req.body)
-        const {gardenArr} = req.body;
-
-        backEndGardenArr.push(gardenArr);
-        console.log(backEndGardenArr)
-        res.status(200).send('updated!')
+    addToGarden: (req, res) => {
+        backEndGardenArr.push(req.body)
+        res.status(200).send(backEndGardenArr)
+        
     }
 }

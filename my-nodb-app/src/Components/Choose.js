@@ -7,52 +7,6 @@ import axios from 'axios';
 class Choose extends Component {
     constructor() {
         super();
-
-        this.state = {
-            gardenArr: [],
-        };
-    }
-
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.gardenArr.length !== this.state.gardenArr.length) {
-            this.updateGarden()
-        }
-    }
-
-    updateGarden = () => {
-        const {gardenArr} = this.state;
-        const body = {gardenArr};
-
-        axios.post(`/garden/update`, body)
-    }
-
-    moveHerbsToGarden = (id) => {
-        this.props.herbArr.map(obj => {
-            if (id === obj.id) {
-               this.setState({
-                    gardenArr: [...this.state.gardenArr, obj]
-                })
-            }
-        }) 
-    }
-
-    moveVeggiesToGarden = (id) => {
-        this.props.vegArr.map(obj => {
-            if (id === obj.id) {
-                this.setState({
-                    gardenArr: [...this.state.gardenArr, obj]
-                })
-            }
-        }) 
-    }
-
-    removeFromGarden = (id) => {
-        axios.delete(`/myGarden/planted/${id}`).then(response => {
-            console.log(response)
-            this.setState({
-                gardenArr: response.data
-            })
-        })
     }
 
 
@@ -63,7 +17,7 @@ class Choose extends Component {
             return(
                 <div className="herbsData">
                     <div>
-                        <button onClick={() => this.moveHerbsToGarden(obj.id)}><img src={obj.image} alt='Herb' className="plantPics"/></button>
+                        <button onClick={() => this.props.moveHerbs(obj)}><img src={obj.image} alt='Herb' className="plantPics"/></button>
                     </div>
                     <h3>{`${obj.name}`}</h3>
                     <p>{`Uses: ${obj.uses}`}</p>
@@ -75,7 +29,7 @@ class Choose extends Component {
             return(
                 <div className="veggiesData">
                     <div>
-                        <button onClick={() => this.moveVeggiesToGarden(obj.id)}><img src={obj.image} alt='Veggie' className="plantPics"/></button>
+                        <button onClick={() => this.props.moveVeggies(obj)}><img src={obj.image} alt='Veggie' className="plantPics"/></button>
                     </div>
                     <h3>{`${obj.name}`}</h3>
                     <p>{`Types: ${obj.types}`}</p>
@@ -93,8 +47,8 @@ class Choose extends Component {
                     {herbsMapped}
                     {veggiesMapped}
                 </div>
-                <MyGarden gardenArr={this.state.gardenArr}
-                removeFunction={this.removeFromGarden}/>
+                <MyGarden herbArr={this.props.herbArr} vegArr={this.props.vegArr}
+                removeFunction={this.props.removeFromGarden} gardenArr={this.props.gardenArr}/>
             </div>
          )
      }
