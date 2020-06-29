@@ -48,7 +48,10 @@ class Choose extends Component {
 
     removeFromGarden = (id) => {
         axios.delete(`/myGarden/planted/${id}`).then(response => {
-            console.log(response.data)
+            console.log(response)
+            this.setState({
+                gardenArr: response.data
+            })
         })
     }
 

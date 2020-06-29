@@ -42,8 +42,8 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.herbArr)
-    console.log(this.state.vegArr)
+    //console.log(this.state.herbArr)
+    //console.log(this.state.vegArr)
     return(
       <div className="background">
         <Header/>

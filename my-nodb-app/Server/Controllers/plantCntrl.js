@@ -97,16 +97,26 @@ module.exports = {
 
     removeFromGarden: (req, res) => {
         const {id} = req.params;
+        for (let i = 0; i < backEndGardenArr.length; i++) {
+            for (let j = 0; j < backEndGardenArr[i].length; j++) {
+                if (backEndGardenArr[i][j].id === id) {
+                    console.log(backEndGardenArr[i][j])
+                    backEndGardenArr[i][j].splice(j, 1)
+                }
+            }
+        }
+        //console.log(backEndGardenArr)
+        res.status(200).send(backEndGardenArr)
 
-        const index = herbArr.findIndex(obj => obj.id === +id) 
-        if (index) {
-            return herbArr.splice(index, 1)
-        }
-        const indexTwo = vegArr.findIndex(obj => obj.id === +id)
-        if (indexTwo) {
-            return vegArr.splice(indexTwo, 1)
-        }
-        res.status(200).send(herbArr, vegArr)
+        // const index = herbArr.findIndex(obj => obj.id === +id) 
+        // if (index) {
+        //     return herbArr.splice(index, 1)
+        // }
+        // const indexTwo = vegArr.findIndex(obj => obj.id === +id)
+        // if (indexTwo) {
+        //     return vegArr.splice(indexTwo, 1)
+        // }
+        // res.status(200).send(herbArr, vegArr)
     },
 
     updateGarden: (req, res) => {
